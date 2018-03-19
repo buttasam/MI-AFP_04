@@ -9,37 +9,37 @@ empty = Empty
 
 -- Get element from top of stack
 -- If stack is empty error with message "Empty stack" will be raised
--- TODO: implement top
 top :: Stack a -> a
-top = undefined
+top (Empty) = error "Empty stack"
+top (NonEmpty a rest) = a
 
 -- Get element from top of stack (if there is some, otherwise return Nothing)
--- TODO: implement safe top
 topSafe :: Stack a -> Maybe a
-topSafe = undefined
+topSafe (Empty) = Nothing
+topSafe (NonEmpty a rest) = Just a
 
 -- Pop element from top of stack
 -- If stack is empty error with message "Empty stack" will be raised
--- TODO: implement pop
 pop :: Stack a -> Stack a
-pop = undefined
+pop (Empty) = error "Empty stack"
+pop (NonEmpty a rest) = rest
 
 -- Pop element from top of stack (if there is some, otherwise return Nothing)
--- TODO: implement safe pop
 popSafe :: Stack a -> Maybe (Stack a)
-popSafe = undefined
+popSafe (Empty) = Nothing
+popSafe (NonEmpty a rest) = Just rest
 
 -- Push element to top of stack
 push :: a -> Stack a -> Stack a
 push v stack = NonEmpty v stack
 
 -- Get number of elements in stack
--- TODO: implement size
 size :: Num n => Stack a -> n
-size = undefined
+size Empty = 0
+size (NonEmpty a rest) = 1 + size rest
 
 -- Check if stack is empty
 -- Note: is more effective than checking if size is zero
--- TODO: implement null (not by using size!)
 null :: Stack a -> Bool
-null = undefined
+null Empty = True
+null (NonEmpty a rest) = False
