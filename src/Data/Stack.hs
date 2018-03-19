@@ -30,9 +30,8 @@ popSafe :: Stack a -> Maybe (Stack a)
 popSafe = undefined
 
 -- Push element to top of stack
--- TODO: implement push
 push :: a -> Stack a -> Stack a
-push = undefined
+push v stack = NonEmpty v stack
 
 -- Get number of elements in stack
 -- TODO: implement size
